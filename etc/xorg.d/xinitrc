@@ -7,8 +7,7 @@ xres="$XDG_CONFIG_HOME/xorg.d/Xresources"
 # Set cursor to something good
 xsetroot -cursor_name left_ptr
 
-# Solid background
-hsetroot -solid '#414A4C'
+#hsetroot -solid '#414A4C'
 hsetroot -fill "$WALL"
 
 # Compositor
