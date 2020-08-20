@@ -19,6 +19,7 @@ set undodir=~/etc/nvim/undodir
 set undofile
 set incsearch
 
+"colorscheme aosync
 
 call plug#begin('~/etc/nvim/plugged')
 
@@ -133,3 +134,6 @@ set statusline+=%#Sl1#\|
 
 " Cursor position
 set statusline+=\%#Sl2#\ %l,%c
+
+""" Language things
+au BufWritePost *.go :silent execute "!gofmt -w %" | :e

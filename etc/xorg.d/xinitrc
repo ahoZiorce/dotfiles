@@ -9,6 +9,7 @@ xsetroot -cursor_name left_ptr
 
 # Solid background
 hsetroot -solid '#414A4C'
+hsetroot -fill "$WALL"
 
 # Compositor
 # picom -b --config "$XDG_CONFIG_HOME/picom/picom.conf"

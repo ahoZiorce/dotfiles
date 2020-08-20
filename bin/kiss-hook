@@ -3,7 +3,7 @@
 case $TYPE in
 	pre-extract)
 		case $PKG in
-			firefox|firefox-esr|firefox-dbus|rust|llvm|clang)
+			firefox|firefox-esr|firefox-dbus|rust|llvm|clang|gcc)
 				mak_dir="$KISS_TMPDIR/build-$PKG"
 				pkg_dir="$KISS_TMPDIR/pkg-$PKG"
 			;;
