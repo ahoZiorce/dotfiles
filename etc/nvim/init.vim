@@ -1,5 +1,3 @@
-syntax on
-
 " Do not use more than 16 colors (ideally)
 set notermguicolors t_Co=16
 
@@ -20,13 +18,6 @@ set undofile
 set incsearch
 
 "colorscheme aosync
-
-call plug#begin('~/etc/nvim/plugged')
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'tpope/vim-fugitive'
-
-call plug#end()
 
 """ KEYBINDS
 	" The hard way
@@ -53,7 +44,6 @@ call plug#end()
 	" Close things that should be closed
 		inoremap (			()<Left>
 		inoremap [			[]<Left>
-		inoremap <<Space>	<><Left>
 		inoremap {<CR>		{}<Left><CR><Esc>O
 		inoremap {}			{}<Left>
 		inoremap "			""<Left>
@@ -82,6 +72,7 @@ call plug#end()
 " status line, based on gk's, themselves based on lena's
 set noshowmode
 set laststatus=2
+syntax off
 
 hi Sl1 ctermfg=12   cterm=none ctermbg=none
 hi Sl2 ctermfg=7    cterm=none ctermbg=none

@@ -37,7 +37,7 @@ toclip() {
 	cat "$1" | xclip -sel clip -i
 }
 
-a fetch=neofetch
+a fet.sh="info='user os kern wm sh term col' fet.sh"
 
 a pkg="doas pkg"
 

@@ -1,0 +1,22 @@
+#!/bin/sh -e
+
+cd /tmp
+
+wget "$1"
+
+base="${1##*/}"
+dir="${base%.*.*}"
+
+tar xvf "$base"
+rm "$base"
+cd "$dir"
+cp /usr/src/GENERIC-AWS ./.config
+
+make -j "$(nproc)"
+
+doas make INSTALL_MOD_STRIP=1 modules_install
+doas make install
+cp -f /usr/src/GENERIC-AWS "$HOME/etc/kerns/GENERIC-AWS-$(date +'%d-%m-%y-%T')"
+doas cp -f ./.config /usr/src/GENERIC-AWS
+cd ..
+mv "$dir" "$OPT/$dir"

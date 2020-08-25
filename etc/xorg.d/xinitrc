@@ -8,10 +8,7 @@ xres="$XDG_CONFIG_HOME/xorg.d/Xresources"
 xsetroot -cursor_name left_ptr
 
 #hsetroot -solid '#414A4C'
-hsetroot -fill "$WALL"
-
-# Compositor
-# picom -b --config "$XDG_CONFIG_HOME/picom/picom.conf"
+hsetroot -fill "$WALL" &
 
 # Colemak TODO: set this in X config instead
 setxkbmap -layout us colemak
