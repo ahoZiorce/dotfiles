@@ -30,6 +30,14 @@ super + shift + g
 super + shift + j
 	$BROWSER https://github.com
 
+# Uni stuff
+super + shift + l
+	$BROWSER https://my.uliege.be/portail/index.do
+
+# acme
+super + a
+	acme
+
 # Open emoji menu
 super + shift + e
     emojis

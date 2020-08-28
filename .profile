@@ -18,6 +18,9 @@ export PATH="$BIN/wm:$PATH"
 export PATH="$BIN/wrap:$PATH"
 export PATH="$BIN:$PATH"
 
+export PLAN9="$OPT/plan9port"
+export PATH="$PATH:$PLAN9/bin"
+
 export PATH="$PATH:$OPT/cargo/bin"
 export PATH="$PATH:$OPT/deno/bin"
 
@@ -39,8 +42,8 @@ export CFLAGS="-O3 -pipe -march=native"
 export CXXFLAGS="$CFLAGS"
 export MAKEFLAGS="-j4"
 
-export CC="gcc"
-export CXX="g++"
+export CC="clang"
+export CXX="clang++"
 
 export CCACHE_DIR="$VAR/cache/ccache"
 
@@ -69,4 +72,4 @@ export DENO_INSTALL="$OPT/deno"
 export NPM_CONFIG_USERCONFIG="$ETC/npmrc"
 export NPM_CONFIG_GLOBALCONFIG=/etc/npmrc
 
-# [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ] && exec sx
+[ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ] && exec sx

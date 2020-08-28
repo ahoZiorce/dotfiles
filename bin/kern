@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd /tmp
+cd "$OPT"
 
 wget "$1"
 
@@ -19,4 +19,3 @@ doas make install
 cp -f /usr/src/GENERIC-AWS "$HOME/etc/kerns/GENERIC-AWS-$(date +'%d-%m-%y-%T')"
 doas cp -f ./.config /usr/src/GENERIC-AWS
 cd ..
-mv "$dir" "$OPT/$dir"
