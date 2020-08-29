@@ -1,0 +1,36 @@
+#!/bin/sh
+
+scr="$(date '+%F-%H%M%S%N')"
+
+if [ $1 = -r ]; then
+
+	set -- $(slop -f "%x %y %w %h")
+
+	ffmpeg \
+    -video_size $3x$4  \
+    -framerate 60 \
+    -f x11grab \
+    -i :0.0+$1,$2 \
+    -c:v libx264 \
+    -crf 0 \
+    -preset ultrafast \
+    -y \
+   	"/tmp/$scr.mkv"
+
+else
+
+	ffmpeg \
+    -video_size 1920x1080  \
+    -framerate 60 \
+    -f x11grab \
+    -i :0.0 \
+    -c:v libx264 \
+    -crf 0 \
+    -preset ultrafast \
+    -y \
+   "/tmp/$scr.mkv"
+
+fi
+
+ffmpeg -i "/tmp/$scr.mkv" -codec copy "$SCREENSHOTS/$scr.mp4"
+rm "/tmp/$scr.mkv"

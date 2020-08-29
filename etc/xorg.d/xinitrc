@@ -2,6 +2,8 @@
 
 xhost +local:
 
+[ -z "$(pidof plumber)" ] && plumber
+
 # Load Xresources if present
 xres="$XDG_CONFIG_HOME/xorg.d/Xresources"
 [ -f "$xres" ] && xrdb "$xres"

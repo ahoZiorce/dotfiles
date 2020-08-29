@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sel=$(slop)
+
+[ -z "$sel" ] && exit
+
+bspc rule -a drawnst state=floating rectangle="$sel"
+
+exec st -c drawnst

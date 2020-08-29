@@ -14,7 +14,6 @@ export LANG=en_US.UTF-8
 
 export PATH="/usr/lib/ccache/bin:$PATH"
 export PATH="$BIN/x:$PATH"
-export PATH="$BIN/wm:$PATH"
 export PATH="$BIN/wrap:$PATH"
 export PATH="$BIN:$PATH"
 
@@ -29,9 +28,8 @@ export WALL_BLURRED="$XDG_CACHE_HOME/wall_b.png"
 export SCREENSHOTS="$MED/screenshots"
 
 export EDITOR=nvim
-export VISUAL=nvim
+export VISUAL=acme
 export BROWSER=firefox
-export FILE=ranger
 export TERMINAL=st
 export READER=zathura
 export WM=bspwm
@@ -71,5 +69,3 @@ export RUSTUP_HOME="$OPT/rustup"
 export DENO_INSTALL="$OPT/deno"
 export NPM_CONFIG_USERCONFIG="$ETC/npmrc"
 export NPM_CONFIG_GLOBALCONFIG=/etc/npmrc
-
-[ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ] && exec sx
