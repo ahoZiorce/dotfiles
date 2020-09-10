@@ -1,0 +1,70 @@
+#!/bin/sh
+
+# Disk images
+WIN_ISO=/home/aws/var/vms/iso/win10.iso
+WIN_HDD=/home/aws/var/vms/images/win10.qcow2
+WIN_HDD_SIZE=60G
+VIRTIO_ISO=/home/aws/var/vms/iso/virtio-win.iso
+
+# Hardware config
+CORE_COUNT=$(nproc)
+MEMORY=6G
+
+# Virtual GPU Config
+GVT_DOM=0000:00
+GVT_PCI=0000:00:02.0
+GVT_TYPE=i915-GVTg_V4_4
+GVT_GUID=6de21081-ac9f-448c-aefc-cad3951baf1e
+
+create_vgpu() {
+    echo "$GVT_GUID" > "/sys/devices/pci${GVT_DOM}/${GVT_PCI}/mdev_supported_types/${GVT_TYPE}/create"
+}
+
+delete_vgpu() {
+    echo 1 > /sys/bus/pci/devices/${GVT_PCI}/${GVT_GUID}/remove
+}
+
+run_qemu() {
+    qemu-system-x86_64 \
+    -usb \
+    -boot c \
+    -display gtk,gl=on \
+    -full-screen \
+    -vga none \
+    -m ${MEMORY} \
+    -cpu host \
+    -smp sockets=1,cores=4,threads=2 \
+    -machine type=q35,accel=kvm \
+    -drive file=${WIN_ISO},index=0,media=cdrom \
+    -drive file=${VIRTIO_ISO},index=1,media=cdrom \
+    -drive file=${WIN_HDD},format=qcow2,if=virtio,discard=unmap \
+	-device intel-hda -device hda-duplex \
+    -audiodev alsa,id=snd0 \
+    -device virtio-net,netdev=vmnic -netdev user,id=vmnic \
+    -device vfio-pci,sysfsdev=/sys/bus/mdev/devices/${GVT_GUID},display=on,x-igd-opregion=on,ramfb=on,driver=vfio-pci-nohotplug
+}
+
+show_help() {
+    echo "Automatic Winblow 2000(tm)"
+    echo "Subcommands:"
+    echo "    help               help                    - Show this menu"
+    echo "    run                run                     - Run the Winblows VM"
+    echo "    create_hdd         create_hdd [size]       - Create a harddrive image"
+}
+
+if [ "${1}" == "" ]; then
+    show_help
+fi
+
+case $1 in
+    help)
+        show_help ;;
+    run)
+        create_vgpu
+        run_qemu
+        delete_vgpu ;;
+    create_hdd)
+        qemu-img create -f qcow2 ${WIN_HDD} ${WIN_HDD_SIZE};;
+    *)
+        show_help ;;
+esac

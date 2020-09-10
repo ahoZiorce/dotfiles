@@ -16,11 +16,11 @@ super + w
 
 # Start the browser
 super + shift + f
-    $BROWSER
+	$BROWSER
 
 # Start google keep
 super + shift + k
-    $BROWSER https://keep.google.com
+	$BROWSER https://keep.google.com
 
 # Start google calendar
 super + shift + c
@@ -48,15 +48,15 @@ super + shift + e
 
 # Lock screen
 super + shift + x
-	mightylock
+	slock
 
 # Entire screen
 Print
-	screensh
+	scr
 
 # Region screenshot
 alt + Print
-	screensh -r
+	scr -r
 
 # Volume
 XF86AudioLowerVolume

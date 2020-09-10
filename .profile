@@ -23,6 +23,8 @@ export PATH="$PATH:$PLAN9/bin"
 export PATH="$PATH:$OPT/cargo/bin"
 export PATH="$PATH:$OPT/deno/bin"
 
+export KISS_PATH="$KISS_PATH:$VAR/kiss/community/community:$VAR/kiss/kiss-ricing/kiss-ricing:$VAR/kiss/kiss-dbus/kiss-dbus:$VAR/kiss/kiss-aosync"
+
 export WALL="$XDG_CACHE_HOME/wall"
 export WALL_BLURRED="$XDG_CACHE_HOME/wall_b.png"
 export SCREENSHOTS="$MED/screenshots"

@@ -1,15 +1,19 @@
-#!/usr/bin/es --
+#!/bin/sh
 
-if {! ~ $#1 0} {walls = $1} {walls = $MED/wall}
+[ -n "$1" ] && walls=$1 || walls="$MED/wall"
 
-images = `{find $walls -maxdepth 1 -type f}
+echo $walls
 
-for (i = $images) {
-	sxiv $^i &
-	r = <={%read}
-	kill $apid ; sleep 0.4
-	if {~ $r rem} {rm $^i} {
-		[ -d $walls/$r ] || mkdir $walls/$r
-		mv `{basename $^i} $walls/$r/
-	}
-}
+images=$(find $walls -maxdepth 1 -type f)
+
+for i in $images; do
+	sxiv "$i" &
+	read -r r
+	kill $! ; sleep 0.4
+	if [ $r = rem ]; then
+		rm "$i"
+	else
+		[ -d "$walls/$r" ] || mkdir "$walls/$r"
+		mv "$i" "$walls/$r"
+	fi
+done

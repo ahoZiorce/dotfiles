@@ -4,9 +4,12 @@ alias a=alias
 
 a doas="doas --"
 
-a ls="ls -a --group-directories-first --color"
+a ls="ls -a --group-directories-first"
 a ll="ls -lh"
 a rr="rm -Rf"
+a free="free -h"
+a df="df -h"
+a dfr="df /dev/sda2"
 a c=clear
 a wd=smartpath
 a d=date
@@ -19,12 +22,12 @@ a gall="git add -A"
 a gcm="git commit -m"
 a gs="git status"
 
-a scan="doas iwd -d 2>&1 | grep -i 'new network' ; doas iwd &"
+a scan="doas iwd -d 2>&1 | grep -i 'new network'"
 
 a r=ranger
 
-a v=acme
-a dv="doas acme"
+a v=nvim
+a dv="doas nvim"
 
 n() {
 	echo "$@" >> ~/notes/notes
@@ -37,6 +40,14 @@ weather() {
 
 toclip() {
 	cat "$1" | xclip -sel clip -i
+}
+
+kpatch() {
+	patch=$1
+	shift
+	git send-email \
+		--cc-cmd="./scripts/get_maintainer.pl --norolestats $patch" \
+		$@ $patch
 }
 
 a fet.sh="info='user os kern wm sh term col' fet.sh"
