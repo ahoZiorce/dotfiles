@@ -19,6 +19,7 @@ bspc config focus_follows_pointer	true
 #######
 
 bspc rule -a notif state=floating sticky=true
+bspc rule -a clockst state=floating sticky=true rectangle=81x43+1812+21
 bspc rule -a St state=pseudo_tiled center=true rectangle=1500x875+0+0
 bspc rule -a Zathura state=floating rectangle=700x1000+0+0 center=true
 

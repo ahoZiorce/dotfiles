@@ -23,7 +23,7 @@ export PATH="$PATH:$PLAN9/bin"
 export PATH="$PATH:$OPT/cargo/bin"
 export PATH="$PATH:$OPT/deno/bin"
 
-export KISS_PATH="$KISS_PATH:$VAR/kiss/community/community:$VAR/kiss/kiss-ricing/kiss-ricing:$VAR/kiss/kiss-dbus/kiss-dbus:$VAR/kiss/kiss-aosync"
+export KISS_PATH="$VAR/kiss/kiss-aosync:$KISS_PATH:$VAR/kiss/community/community:$VAR/kiss/kiss-ricing/kiss-ricing:$VAR/kiss/kiss-dbus/kiss-dbus"
 
 export WALL="$XDG_CACHE_HOME/wall"
 export WALL_BLURRED="$XDG_CACHE_HOME/wall_b.png"
@@ -31,7 +31,7 @@ export SCREENSHOTS="$MED/screenshots"
 
 export EDITOR=nvim
 export VISUAL=acme
-export BROWSER=firefox
+export BROWSER=chromium
 export TERMINAL=st
 export READER=zathura
 export WM=bspwm
@@ -71,3 +71,5 @@ export RUSTUP_HOME="$OPT/rustup"
 export DENO_INSTALL="$OPT/deno"
 export NPM_CONFIG_USERCONFIG="$ETC/npmrc"
 export NPM_CONFIG_GLOBALCONFIG=/etc/npmrc
+
+[ "$(tty)" = "/dev/tty1" ] && [ -z "$(pidof X)" ] && exec sx

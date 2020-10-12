@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/sh 
 alias a=alias
 
 a doas="doas --"
@@ -49,6 +48,31 @@ kpatch() {
 		--cc-cmd="./scripts/get_maintainer.pl --norolestats $patch" \
 		$@ $patch
 }
+
+dllatest() {
+	set -- $(/bin/ls -t1 "$HOME/dl")
+	LATEST="$HOME/dl/$1"
+}
+
+mvto() {
+	uni="$HOME/doc/uni"
+	[ -d "$uni/$1" ] && where="$uni/$1" || where="$1"
+	dllatest
+	mv -v "$LATEST" "$where"
+	LATEST="$where/${LATEST##*/}"
+}
+
+open() {
+	[ -z "$LATEST" ] && dllatest
+	plumb "$LATEST"
+}
+
+clock() {
+	font=$(xrdb-get st font)
+	font="${font//pixelsize=[0-9]*:/pixelsize=20:}"
+	st -f "$font" -c clockst -e watch -tn 60 'echo -n $(date +"%H:%M")' >/dev/null 2>&1 &
+}
+
 
 a fet.sh="info='user os kern wm sh term col' fet.sh"
 
