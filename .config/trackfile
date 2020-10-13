@@ -1,0 +1,15 @@
+bin/
+
+.config/bspwm/
+.config/gtk-3.0/
+.config/nvim/init.vim
+.config/nvim/coc-settings.json
+.config/picom/
+.config/sh/
+.config/sxhkd/
+.config/xorg.d/
+.config/pythonrc
+.config/trackfile
+.config/user-dirs.dirs
+
+.profile
