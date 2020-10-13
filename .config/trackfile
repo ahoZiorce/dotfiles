@@ -2,6 +2,7 @@ bin/
 
 .config/bspwm/
 .config/gtk-3.0/
+.config/home.d/
 .config/nvim/init.vim
 .config/nvim/coc-settings.json
 .config/picom/
