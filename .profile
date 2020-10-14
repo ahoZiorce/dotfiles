@@ -28,7 +28,7 @@ export SCREENSHOTS="$MED/screenshots"
 
 export EDITOR=nvim
 export VISUAL=acme
-export BROWSER=chromium
+export BROWSER=chrome
 export TERMINAL=st
 export READER=zathura
 export WM=bspwm

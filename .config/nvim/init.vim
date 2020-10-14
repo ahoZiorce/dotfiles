@@ -72,7 +72,7 @@ set incsearch
 " status line, based on gk's, themselves based on lena's
 set noshowmode
 set laststatus=2
-syntax off
+syntax on
 
 hi Sl1 ctermfg=12   cterm=none ctermbg=none
 hi Sl2 ctermfg=7    cterm=none ctermbg=none

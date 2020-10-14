@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# $OpenBSD: Xsession.in,v 1.1 2017/07/26 21:14:54 matthieu Exp $
+prefix="/usr/X11R6"
+exec_prefix="${prefix}"
+
+. $HOME/.profile
+
+resources=$XDG_CONFIG_HOME/xorg.d/Xresources
+
+if [ -f "$resources" ]; then
+	/usr/X11R6/bin/xrdb -load "$resources"
+fi
+
+# hsetroot -solid '#434343' &
+hsetroot -fill "$WALL" &
+
+sxhkd -m 1 &
+${exec_prefix}/bin/cwm

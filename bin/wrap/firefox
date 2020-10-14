@@ -1,3 +1,0 @@
-#!/bin/sh
-
-HOME="$XDG_DATA_HOME" apulse /usr/bin/firefox "$@"

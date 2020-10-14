@@ -1,4 +1,4 @@
 #!/bin/sh
 
 hsetroot -fill $1
-ln -sf "$(readlink -f $1)" "$WALL"
+ln -sf $1 "$WALL"

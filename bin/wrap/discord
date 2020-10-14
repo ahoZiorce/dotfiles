@@ -1,5 +1,3 @@
 #!/bin/sh
 
-#$BROWSER https://discord.com/app
-
-HOME="$XDG_DATA_HOME" apulse /usr/bin/discord $@ >/dev/null 2>&1 &
+$BROWSER https://discord.com/app "$@" >/dev/null 2>&1 &
