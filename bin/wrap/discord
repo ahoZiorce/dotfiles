@@ -1,3 +1,11 @@
 #!/bin/sh
 
-$BROWSER https://discord.com/app "$@" >/dev/null 2>&1 &
+$BROWSER \
+	--no-sandbox \
+	--disable-background-networking \
+	--disable-background-timer-throttling \
+	--disable-backing-store-limit \
+	--disable-blink-features \
+	--disable-breakpad \
+	--app=https://discord.com/app \
+	$@ >/dev/null 2>&1 &

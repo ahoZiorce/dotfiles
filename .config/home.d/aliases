@@ -12,6 +12,11 @@ a dfr="df /dev/sda2"
 a c=clear
 a wd=smartpath
 a d=date
+a z=zathura
+
+mansplain() {
+	MANPAGER=cat man -T pdf $@ | curl -s -F"file=@-" http://0x0.st | awk "{print \"$1: \"\$1}" | xclip -sel clip -i
+}
 
 a gc="doas gchroot"
 

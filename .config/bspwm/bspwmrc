@@ -3,9 +3,9 @@
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 #bspc config normal_border_color $(xrdb-get bspwm color6)
-#bspc config focused_border_color $(xrdb-get bspwm color6)
+#bspc config focused_border_color $(xrdb-get bspwm color12)
 
-bspc config border_width 		0
+bspc config border_width 		4
 bspc config window_gap 			2
 
 bspc config split_ratio 		0.50
@@ -22,6 +22,7 @@ bspc rule -a notif state=floating sticky=true
 bspc rule -a clockst state=floating sticky=true rectangle=81x43+1812+21
 bspc rule -a St state=pseudo_tiled center=true rectangle=1500x875+0+0
 bspc rule -a Zathura state=floating rectangle=700x1000+0+0 center=true
+bspc rule -a feh state=floating
 
 ##########
 # Metadata

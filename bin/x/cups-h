@@ -1,3 +1,3 @@
 #!/bin/sh
 
-firefox localhost:631/admin
+$BROWSER --no-sandbox --app="http://localhost:631/admin"

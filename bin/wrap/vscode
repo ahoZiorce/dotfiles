@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# how i made it work? (for future reference)
+# simply `yarn global add code-server`
+# then make sure to set npm_config_user_agent to something that's accepted by the postinstall.sh
+# then run postinstall.sh
+# then compile node-pty for terminal
+
+cd $HOME/node_modules/code-server
+node ./out/node/entry.js >/dev/null 2>&1 &
+pid=$!
+
+sleep 3
+
+chrome \
+	--no-sandbox \
+	--app=http://127.0.0.1:8081

@@ -1,9 +1,18 @@
 #!/bin/sh
 
+case $TERMINAL in
+	alacritty*)
+		classarg=--class
+		;;
+	*)
+		classarg=-c
+		;;
+esac
+
 sel=$(slop)
 
 [ -z "$sel" ] && exit
 
-bspc rule -a drawnst state=floating rectangle="$sel"
+bspc rule -a drawn state=floating rectangle="$sel"
 
-exec st -c drawnst
+exec $TERMINAL $classarg drawn

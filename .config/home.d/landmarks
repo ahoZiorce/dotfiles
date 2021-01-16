@@ -11,6 +11,7 @@ s $HOME/.local/share
 O $HOME/ext
 W $HOME/med/wall
 D $HOME/doc
+u $HOME/doc/uni
 d $HOME/dl
 M $HOME/med
 w $HOME/bin/wrap
